@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03_1</title>
+	<script>
+		var arr = [1, 2, 7, 3, -3, -5, 2];
+		var min = arr[0];
+  		var max = min;
+  		var sum = 0;
+  		var sum_odd = 0;
+
+  		for (i = 0; i < arr.length; i++) {
+      		if (arr[i] > max) { 
+      			max = arr[i];
+      		}	
+
+      		if (arr[i] < min) {
+      			min = arr[i];
+      		}	
+
+      		sum += arr[i];
+
+      		var average = sum / arr.length;
+
+      		if (arr[i] % 2 == 1 || arr[i] % 2 == -1) {
+      			sum_odd += arr[i];
+      		}
+  		}
+
+  		document.write(max + "<br />");
+  		document.write(min + "<br />");
+  		document.write(sum + "<br />");
+  		document.write(average + "<br />");
+  		document.write(sum_odd + "<br />");
+  		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

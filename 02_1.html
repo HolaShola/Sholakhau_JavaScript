@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02_1</title>
+	<script>
+		var A = prompt("Input A value ", "0");
+		var B = prompt("Input B value ", "0");
+		var sum = 0;
+		var sum_odd = 0;
+		
+		var intA = parseInt(A);
+		var intB = parseInt(B);
+		        
+		for (i = intA; i <= intB; i++) {
+			sum += i;
+			if (i % 2 == 1 || i % 2 == -1) {
+				sum_odd += i;
+			}
+		}
+
+		document.write(sum + "<br />");
+		document.write(sum_odd);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
