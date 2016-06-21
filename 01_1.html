@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01_1</title>
+	<script>
+		var x = 6;
+		var y = 15;
+		var z = 4;
+		var res;
+
+		res = x += y - x++ * z;
+		document.write("x += y - x++ * z = " +res+ "<br />");
+
+		res = z = -- x - y * 5;
+		document.write("z = -- x - y * 5 = " +res+ "<br />");
+
+		res = y /= x + 5 % z;
+		document.write("y /= x + 5 % z = " +res+ "<br />");
+
+		res = z = x++ + y * 5;
+		document.write("z = x++ + y * 5 = " +res+ "<br />");
+		
+		res = x = y - x++ * z;
+		document.write("x = y - x++ * z = " +res+ "<br />");
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
