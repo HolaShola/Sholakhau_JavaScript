@@ -3,17 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>01_3</title>
-	<script>
-		var Radius = prompt("Input Radius value ", "0");
-		var Height = prompt("Input Height value ", "0");
-		       
-		var floatRadius = parseFloat(Radius);
-		var floatHeight = parseFloat(Height);
+	<script>   
+		var Radius = parseFloat(prompt("Input Radius value ", "0"));
+		var Height = parseFloat(prompt("Input Height value ", "0"));
 		        
-		var V = 2 * Math.PI * floatRadius *floatHeight;
-		document.write(V + "<br />");
+		var V = 2 * Math.PI * Radius * Height;
+		var S = 2 * Math.PI * Radius * (Radius + Height);
 
-		var S = 2 * Math.PI * floatRadius * (floatRadius + floatHeight);
+		document.write(V + "<br />");
 		document.write(S);
 	</script>
 </head>
