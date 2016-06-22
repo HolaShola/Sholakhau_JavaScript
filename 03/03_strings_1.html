@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var str = 'Hello my love';
+		var arr = str.split('');
+		var arr2 = [];
+
+		for (i = arr.length; i > 0; i--) {
+			arr2[arr.length-i] = arr[i-1];
+		}
+
+		console.log(arr2);
+
+		var str2 = arr2.join("");
+		console.log(str2);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
