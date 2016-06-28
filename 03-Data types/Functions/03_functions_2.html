@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var x = parseInt(prompt("Enter a digit, please", '0'));
+        
+    	function reverseDigit (first_number) {
+            var lastDigit;
+            var second_number = 0;    
+            var arr = [];
+
+            while (first_number >= 1) {
+        		lastDigit = first_number % 10; // получаем  последнюю цифру
+            	first_number = parseInt(first_number / 10); // отбрасываем последнюю часть "округлением";
+
+                arr.push(lastDigit); // добавляем последнюю цифру в массив arr	   
+        	}
+
+            for (var i = 0; i < arr.length; i++) {
+                second_number = second_number + arr[i] * Math.pow(10, arr.length - 1 - i); 
+
+            }
+            console.log(second_number);
+        }
+        
+        reverseDigit (x);    
+            
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

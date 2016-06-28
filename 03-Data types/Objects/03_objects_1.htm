@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        // конструктор объекта 'линия'
+        function Line(fx, fy, sx, sy) {
+            this.firstPointX = fx; // координата первой точки по Х
+            this.firstPointY = fy; // координата первой точки по У
+            this.secondPointX = sx; // координата второй точки по Х
+            this.secondPointY = sy; // координата второй точки по У
+            
+            // метод определения расстояния между точками. вернет длину линии
+            this.length = function (){
+                return Math.sqrt(Math.pow(this.firstPointX - this.secondPointX, 2) +
+                Math.pow(this.firstPointY - this.secondPointY, 2));
+            }
+        }
+
+        // создаем объекты 'линии' и передаем координаты начала
+        // и конца каждой из точек в качестве параметров
+        var first = new Line(9, 15, 17, 25);
+        console.log('Длина первой линии = ' +first.length());
+
+        var second = new Line(5, 15, 2, 17);
+        console.log('Длина второй линии = ' +second.length());
+
+        var third = new Line(11, 15, 32, 25);
+        console.log('Длина третьей линии = ' +third.length());
+
+        if ((first.length() + second.length() > third.length()) &&
+            (first.length + third.length() > second.length()) &&
+            (third.length + second.length() > first.length())) {
+            console.log('Из данных линий можно сформировать треугольник');
+        } else {
+            console.log('Из данных линий нельзя сформировать треугольник');
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
