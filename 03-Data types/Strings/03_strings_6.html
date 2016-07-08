@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>        
+      	var str = '<html><head><title>Sample site</title></head><body><div>text<div>more text</div>and more...</div>in body</body></html>';
+
+      	function extractContent() {
+    		// /<[^<]+>/g - регулярное выражение для тега
+    		var result = str.replace(/<[^<]+>/g, ''); // меняем тег на пустую строку
+    		return result;
+    	}
+
+    	console.log(extractContent());	
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

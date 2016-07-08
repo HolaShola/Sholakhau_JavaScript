@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var str = 'We are <mixcase>living</mixcase> in a <upcase>yellow <lowcase>submARINE YELLOW</lowcase> submarine</upcase>. We <mixcase>don\'t</mixcase> have <lowcase>anything</lowcase> else.';
+		// сделаем один шаблон на 3 тега
+		var pattern = /<(upcase|lowcase|mixcase)>(.+?)<\/\1>/ig; // !!!
+
+		function replacer(p, second, n){	
+			// т.к. области могут быть вложены, то мы точно не знаем какое правило
+			// применилось для внутренних тегов. И нельзя подобрать точное значение
+			// параметра second, т.к. тег может быть в миксовом регистре
+			// будем ориентироваться на первую букву тега.		
+			if (second[0] == 'u' || second[0] == 'U') {
+				    return n.toUpperCase();
+				} else if (second[0] == 'l' || second[0] == 'L') {
+					return n.toLowerCase();
+				} else if (second[0] == 'm' || second[0] == 'M'){
+					return randomCase(n);
+				}
+		}
+
+		var result = str.replace(pattern, replacer);
+		while (result.search(pattern) !== -1) {
+			result = result.replace(pattern, replacer);
+		}	
+		console.log(result);
+
+		// функция, которая изменяет регистр букв в слове рандомно
+		function randomCase(word) {
+			var res = '';
+			for (var i = 0; i < word.length; i++) {
+				if (Math.random() > 0.5) {
+					res += word[i].toUpperCase();
+				} else {
+					res += word[i];
+				}
+			}
+			return res;
+		}
+	</script>
+</body>
+</html>

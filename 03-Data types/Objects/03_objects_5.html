@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>  
+        var persons = [
+            {firstName: 'Gosho', lastName: 'Petrov', age: 32},
+            {firstName:  'Bay', lastName: 'Ivan', age: 81},
+            {firstName:  'Kolya', lastName: 'Killer', age: 58},
+            {firstName:  'Sergey', lastName: 'Klimson', age: 21},
+            {firstName:  'Joe', lastName: 'Barcley', age: 37}, 
+            {firstName:  'Igor', lastName: 'Tineev', age: 45} 
+        ];
+
+        function sortByAge(arrayOfObjects) {
+            // для сортировки в числовом порядке
+            function sortAge(firstPerson, secondPerson) {
+                return firstPerson.age - secondPerson.age;
+            }
+            arrayOfObjects.sort(sortAge);
+            // вывод отсортированного по возрасту массива объектов
+            for (var i = 0; i < persons.length; i++) {
+                console.log(persons[i].firstName);
+            }
+        }
+
+        function sortByFirstName(arrayOfObjects) {
+            function sortFirstNmame(firstPerson, secondPerson) {
+                if (firstPerson.firstName > secondPerson.firstName) {
+                    return 1;
+                } else if (firstPerson.firstName < secondPerson.firstName) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            }
+            arrayOfObjects.sort(sortFirstNmame);
+            // вывод отсортированного по firstName массива объектов
+            for (var i = 0; i < persons.length; i++) {
+                console.log(persons[i].firstName);
+            }
+        }        
+
+        function sortByLastName(arrayOfObjects) {
+            function sortLastName(firstPerson, secondPerson) {
+                if (firstPerson.lastName > secondPerson.lastName) {
+                    return 1;
+                } else if (firstPerson.lastName < secondPerson.lastName) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            }
+            arrayOfObjects.sort(sortLastName);
+            // вывод отсортированного по lastName массива объектов
+            for (var i = 0; i < persons.length; i++) {
+                console.log(persons[i].lastName);
+            }
+        } 
+        
+        function group(arrayOfObjects, secondArg) {
+            if (secondArg == 'firstName') {
+                return sortByFirstName(arrayOfObjects);
+            } else if ( secondArg == 'lastName') {
+                return sortByLastName(arrayOfObjects);
+            } else {
+                return sortByAge(arrayOfObjects);
+            }
+        }     
+
+        // вторым аргументом еще могут быть 'age', 'lastName'
+        group(persons, 'firstName');   
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

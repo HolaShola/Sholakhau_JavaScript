@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    
+    // obj - объект, глубокую копию которого нужно сделать
+    function deepCopy(obj) {
+        return JSON.parse(JSON.stringify(obj));
+    }
+        
+    console.log(deepCopy(5));
+    console.log(deepCopy([5,8,9]));
+    console.log(deepCopy('spring'));
+    console.log(deepCopy(true));    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
