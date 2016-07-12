@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Function as an Object</title>
+	<script>
+		function str(param) {
+			if (param) {
+				alert('String is non empty');
+			} else {
+				alert('String is empty');
+			}
+		}	
+		// т.к. функция это объект, то можем добавить ей метод		
+		str.constructor.prototype.isNonEpmtyStr = function (par) {
+			alert(Boolean(par));
+		}
+
+		str.isNonEpmtyStr('a');
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

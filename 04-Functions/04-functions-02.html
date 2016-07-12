@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		console.log(comp(3, 3));
+		console.log(comp(4,9));
+		
+		// функции, определяемые в виде выражений, не могут
+		// вызываться до того, как они будут определены 
+
+		var comp = function (firstParametr, secondParemetr) {
+			if (firstParametr === secondParemetr) {
+				return 1;
+			} else {
+				return -1;
+			}
+		};
+
+		console.log(comp(3, 3));
+		console.log(comp(4,9));
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Function as a Parameter</title>
+	<script>
+		function toConsole(param) {
+			console.log(param);
+		}
+
+		function toAlert(param2) {
+			alert(param2);
+		}
+
+		function splitToWords(msg, callback) {
+			if (callback) {
+				return callback(msg);
+			} else {
+				return msg.split(' ');
+			}
+				
+		}
+
+		var msg = 'My very long text msg';
+		console.log(splitToWords(msg));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
