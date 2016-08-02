@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		function Person() {	
+			var firstname, lastname, age;
+		}
+
+		Object.defineProperty(Person.prototype, 'firstname', {
+			get: function() {
+				return firstname;
+			},
+			set: function(value) {
+				var re = /^[a-z]{3,20}$/;
+				if(re.test(value)) {
+					firstname = value
+					return firstname;
+				} else {
+					throw Error('firstname must be string between 3 and 20 characters');
+				}
+			}
+		});
+
+		Object.defineProperty(Person.prototype, 'lastname', {
+			get: function() {
+				return lastname;
+			},
+			set: function(value) {
+				re = /^[a-z]{3,20}$/;
+				if(re.test(value)) {
+					lastname = value
+					return lastname;
+				} else {
+					throw Error('lastname must be string between 3 and 20 characters');
+				}
+			}
+		});
+			
+		Object.defineProperty(Person.prototype, 'age', {
+			get: function() {
+				return age;
+			},
+			set: function(value) {
+				value = parseInt(value);
+				if(value >= 150) {
+					throw Error('age can\'t be more than 150!!!');
+				} else if (value <= 0) {
+					throw Error('age can\'t be less than 0!!!');
+				} else {
+					age = value
+					return age;
+				}
+			}
+		});
+		
+		Object.defineProperty(Person.prototype, 'fullname', {
+  			get: function() {
+    			return firstname+ ' ' +lastname;
+  			},
+			set: function(value) {
+			    var split = value.split(' ');
+			    var re = /^[A-Za-z]{3,20}$/;
+				if(re.test(split[0]) && re.test(split[1])) {
+			    	firstname = split[0];
+			    	lastname = split[1];	
+				} else {
+					throw Error('firstname and lastname must be strings between 3 and 20 characters');
+				}
+			}
+		});
+
+		Person.prototype.introduce = function() {
+			return 'Hello! My name is ' +this.fullname+ ' and I am ' + this.age +' years-old';
+		}
+
+		var petya = new Person();
+		petya.fullname = 'Aer rter';
+		console.log(petya.fullname);
+
+	</script>
+</body>
+</html>
