@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>  
+      var string = 'http://www.tut.by/forum/index.php';
+      // protocol: "http",
+      // server: "www.tut.by",
+      // resource: "/forum/index.php
+      function parseUrl(url) {
+        // регулярное выражение для выделения нужных частей из URL    
+        var x = /^(.+):\/\/(.+?)\/(.+)/; 
+        var result = url.match(x); 
+        var str3 = '{ "protocol": "' +result[1]+ '",'
+                   + '"server": "' +result[2]+ '",'
+                   + '"resource": "' +result[3]+ '"}';
+        return JSON.parse(str3);
+      }
+      
+      console.log(parseUrl(string));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

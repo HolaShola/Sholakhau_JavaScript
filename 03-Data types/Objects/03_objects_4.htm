@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>  
+        var persons = [
+            {firstName: 'Gosho', lastName: 'Petrov', age: 32},
+            {firstName:  'Bay', lastName: 'Ivan', age: 81},
+            {firstName:  'Kolya', lastName: 'Killer', age: 58},
+            {firstName:  'Sergey', lastName: 'Klimson', age: 21},
+            {firstName:  'Joe', lastName: 'Barcley', age: 37}, 
+            {firstName:  'Igor', lastName: 'Tineev', age: 45} 
+        ];
+
+        function youngestPerson() {
+            if (persons.length !== 0) {
+                var min = persons[0].age;
+                var indexMin = 0;
+                
+                for (var i = 0; i < persons.length; i++) {
+                    if (persons[i].age < min) {
+                        min = persons[i].age;
+                        indexMin = i;
+                    }    
+                }
+                console.log('The youngest person is ' +persons[indexMin].firstName+ ' ' +persons[indexMin].lastName);
+            } else {
+                alert('Array is empty!!!');
+            }
+        }
+
+        youngestPerson();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
