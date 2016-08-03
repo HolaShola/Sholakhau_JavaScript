@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		
+        var find = function (testString, test) {
+        	var reg = new RegExp(test, 'ig');
+        	var result = testString.search(reg);
+        	console.log(result);
+		}
+		
+ 		// т.к. метод search() возвращает позицию первого символа 
+ 		// найденной подстроки, то проверять следующие аргументы 
+ 		// нет смысла
+
+ 		// по заданию, если второй аргумент отсутствует, то test = testString,
+ 		// следовательно строки совпадут на первом же символе.
+ 		// метод search вернет 0, так что не будем рассматримать отдельно
+ 		// условие при отсутствии второго аргумента.  
+        find('abc', 'b'); // result = 1
+        find('abc'); // result = 0
+        find('abc', 'd'); // result = -1
+        find('abc', 'a', 'b'); // result = 0 
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

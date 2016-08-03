@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Function as a Result</title>
+	<script>
+		function copyright() {
+			function inner(innerParameter) {
+				var str = '\u00A9' + innerParameter;
+				return str;
+			}	
+			return inner; 
+		}
+		console.log(copyright()('EPAM'));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

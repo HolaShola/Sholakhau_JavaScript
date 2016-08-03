@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Arguments object</title>
+	<script>
+		var param1 = 'This is the first sentence. This is a sentence with a list of items: cherries, oranges, apples, bananas.';
+		var param2='This is the second sentence. This is a sentence with a list of items: red, blue, yellow, black.'; 
+
+		var reg = /\: (.*?)\./g; // регулярное выражение необходимое для поиска
+		var res;
+		var result = []; // массив подстрок удовлетворяющих условию рег.выр.
+		
+		var str = param1 + param2; // делаем одну общую строку
+
+		while((res = reg.exec(str)) != null) {
+			result.push(res[1]);
+		}
+
+		console.log(result);
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
