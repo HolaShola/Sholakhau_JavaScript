@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text">
+	<h2>Hello !!!</h2>
+	<div><h4>FFF</h4></div>
+	<div>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elits eligendi vel voluptatum expedita beatae culpa a minima, ut sunt consequatur, unde magnam reiciendis.
+		</p>
+		<div>What we need</div>
+		<p>Loren lorennn</p>
+	</div>
+	<script>
+		function findDiv() {
+			var divElements = document.querySelector('div > div');
+			console.log(divElements);
+		}	
+		
+		function findDivElements() {
+			var divElements = document.getElementsByTagName('div');
+			for(var i = 0; i < divElements.length; i++){
+				if(divElements[i].getElementsByTagName('div').length != 0) {
+					console.log(divElements[i].getElementsByTagName('div'));
+				}
+			}
+		}
+		
+		findDiv();
+		findDivElements();	
+	</script>
+</body>
+</html>

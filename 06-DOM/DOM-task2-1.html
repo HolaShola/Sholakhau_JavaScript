@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="DOM-task2-1.css">
+</head>
+<body>	
+	<script>
+		var n = prompt('Number of divs, please');
+		for (var i = 0; i < n; i++) {		
+			var newDiv = document.createElement('div');
+			newDiv.innerHTML = '<strong>div</strong>';	
+
+			document.body.appendChild(newDiv);
+			
+			function randomBetween(bottomNumber, topNumber) {
+				return Math.round((topNumber - bottomNumber) * Math.random() + bottomNumber);
+			}
+
+			function randomColor() {
+				var x = randomBetween(0, 255).toString(16);
+				var y = randomBetween(0, 255).toString(16);
+				var z = randomBetween(0, 255).toString(16);
+				var str = '#' + x + y + z;
+				return str;
+			}
+			
+			newDiv.style.width = randomBetween(20, 100) + 'px';
+			newDiv.style.height = randomBetween(20, 100) + 'px';
+			newDiv.style.background = randomColor();
+			newDiv.style.color = randomColor();
+			newDiv.style.borderRadius = randomBetween(0, 50) + '%';
+			newDiv.style.border = randomBetween(1, 20) + 'px';
+			newDiv.style.border = 'solid';
+			newDiv.style.borderColor = randomColor();	
+			newDiv.style.top = randomBetween(0, 100) + '%';
+			newDiv.style.left = randomBetween(0, 100) + '%';
+		}	
+	</script>
+</body>
+</html>
