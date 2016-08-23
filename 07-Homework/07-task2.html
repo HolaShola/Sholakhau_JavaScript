@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ToDo_list</title>
+	<script>
+		window.onload = function() {
+			var add = document.getElementById('add');
+			add.addEventListener('click', addNewElement);
+			
+			var del = document.getElementById('del');
+			del.addEventListener('click', deleteElement);
+		}
+
+		function addNewElement() {
+			var NewElementName = prompt('Enter new element name');
+			var ul = document.querySelector('ul');
+			var li = document.createElement('li');
+			ul.appendChild(li);
+			li.appendChild(document.createTextNode(NewElementName));
+
+		}
+		function deleteElement() {
+			var delElement = parseInt(prompt('Enter element name'));
+			var ul = document.querySelector('ul');
+			var lies = document.querySelectorAll('li');
+			ul.removeChild(lies[delElement]);
+		}	
+	</script>
+</head>
+<body>
+	<ul>
+		<li>First</li>
+		<li>Second</li>
+		<li>Third</li>
+	</ul>
+
+	<input type="text"> <!--form input for new input-->
+	<button id="add">Add new item</button>
+	<button id="del">Del item</button>
+</body>
+</html>
