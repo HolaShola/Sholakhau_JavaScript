@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input id="f" type="text">
+	<button onclick="foo()">Click</button>
+
+	<script>
+		function foo() {
+			var input = document.getElementsByTagName('input');
+			console.log(input[0].value);
+		}	
+	</script>
+</body>
+</html>

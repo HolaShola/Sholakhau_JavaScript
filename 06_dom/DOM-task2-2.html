@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id='go'>Click me</button>
+	<div id="square"></div>
+	<script>
+		window.onload = function() {
+			document.getElementById('go').onclick = function() {
+			for (var i = 0; i < 5; i++) {
+			var div = document.createElement("div"),
+			square = document.body.appendChild(div);
+			square.style.position = "absolute";
+			square.style.width = "50px";
+			square.style.height = "50px";
+			square.style.marginTop = "200px";
+			square.style.marginLeft = "200px";
+			square.style.background = "red";
+		}
+		var divs = document.querySelectorAll('div');
+		var	angular = 0;
+		var	radius = 100;
+		console.log(divs);
+		
+		function animat() {
+			for (j = 1; j < 6; j++) {
+				divs[j].style.left = Math.cos(angular + 2 * Math.PI / 5 * j) / radius * 10000 + 'px';
+				divs[j].style.top = Math.sin(angular + 2 * Math.PI / 5 * j) / radius * 10000 + 'px';
+			}
+			angular = angular + 1;
+			setTimeout(animat, 100);
+		}
+		animat();
+	}
+}
+	</script>
+</body>
+</html>

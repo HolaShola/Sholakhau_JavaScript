@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul {
+			list-style-type: none;
+			padding-left: 0;
+		}
+		li {
+			float: left;
+			margin-right: 20px;
+		}
+		.cloud {
+			width: 400px;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+	<button>Enter</button>
+	<div class="cloud">
+		<ul></ul>
+	</div>
+	<script>
+			document.querySelector('button').onclick = generateTagCloud;
+			function generateTagCloud(minFontSize, maxFontSize) { 
+				if(document.querySelector('ul').innerHTML != '') {
+					document.querySelector('ul').innerHTML = '';
+				}	
+				var minFontSize = 17;
+				var maxFontSize = 42;	
+				
+				function getRandomNumber(min, max) {
+					return Math.floor(Math.random() * (max - min) + min);
+				}
+
+				var arr = ["cms", "javascript", "js", "ASP.NET MVC", ".net", ".net", "css", "wordpress", "xaml", "js", "http", "web", "asp.net", "asp.net MVC", "ASP.NET MVC", "wp", "javascript", "js", "cms", "html", "javascript", "http", "http", "CMS"];
+				for (var i = 0; i < arr.length; i++) {
+					var listItem = document.createElement("li"),
+						anchor = document.createElement("a"),
+						cloud = document.querySelector('div ul');
+						li = cloud.appendChild(listItem),
+						a = li.appendChild(anchor),
+						txt = document.createTextNode(arr[i]);
+					a.appendChild(txt);
+					a.style.fontSize = getRandomNumber(minFontSize, maxFontSize) + "px";	
+
+				}
+			}	
+			
+	</script>	
+</body>
+</html>

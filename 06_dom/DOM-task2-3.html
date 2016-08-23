@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<textarea name="" id="textArea" cols="30" rows="10"></textarea>
+	<input type="color" id="inputFirst">
+	<input type="color" id="inputSecond">
+	
+	<input type="submit" onclick="foo()">
+
+	<script type="text/javascript">
+		function foo() {
+			var first = document.getElementById("inputFirst").value;
+			var second = document.getElementById("inputSecond").value;
+			var textArea = document.getElementById('textArea');
+			
+			textArea.style.color = first;
+			textArea.style.background = second;
+		}	
+	</script>
+
+</body>
+</html>
