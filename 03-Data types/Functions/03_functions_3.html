@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var str = 'We are in cool are green we red true green in the red we';
+
+		function findSubstring(substr) {
+			var kol = 0;
+			for (var i = 0; i < arguments.length; i++) {
+				var pattern = new RegExp(arguments[i], 'ig');
+				// ig - insensitive global search
+				result = str.match(pattern);
+				kol += result.length;			
+			}
+			console.log(kol);
+		}
+
+		findSubstring('we', 'in', 'green');
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
