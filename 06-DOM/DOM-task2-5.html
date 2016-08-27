@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+    <li>Item 1
+    	<ul>
+    		<li>Sub-1 Item 1</li>
+    		<li>Sub-1 Item 2</li>
+    	</ul>
+    </li>
+    <li>Item 2</li>
+    <li>Item 3
+			<ul>
+				<li>Sub-3 Item 1</li>
+				<li>Sub-3 Item 2</li>
+			</ul>
+    </li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+  </ul>
+      
+  <script>
+  	var uls = document.querySelectorAll('li ul');
+     		
+    for (var i = 0; i < uls.length; i++) {
+      uls[i].parentNode.style.listStyleImage = "url('plus.gif')";
+      uls[i].parentNode.style.cursor = "pointer";
+      uls[i].style.display = 'none';	
+  	  uls[i].parentNode.addEventListener('click', foo);
+    };
+      		
+    function foo(e) {
+      if (e.target.childNodes[1].style.display == 'none'){
+        e.target.childNodes[1].style.display = 'block';
+        e.target.style.listStyleImage = "url('minus.gif')";
+      } else {
+        e.target.childNodes[1].style.display = 'none';
+        e.target.style.listStyleImage = "url('plus.gif')";
+      }    
+    }      
+  </script>
+</body>
+</html>
