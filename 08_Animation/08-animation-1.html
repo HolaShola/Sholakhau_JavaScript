@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+	<head>
+		<title>pathExample</title>
+		<meta charset='utf-8' />
+	</head>
+	<body>
+		<canvas id='example'>ww</canvas>
+		<script>
+			var example = document.getElementById("example"),
+			    ctx     = example.getContext('2d');
+			example.height = 480;
+			example.width  = 640;
+
+			ctx.fillStyle = '#90cad7';	
+			ctx.strokeStyle = "#337d8f";
+			ctx.lineWidth = 4;
+
+			ctx.beginPath();
+			
+			//face
+			ctx.moveTo(23, 255);
+			ctx.bezierCurveTo(30, 380, 225, 380, 250, 255);
+			ctx.bezierCurveTo(250, 130, 30, 130, 23, 255);
+			ctx.fill();
+			ctx.stroke();
+			ctx.closePath();
+
+			//nose
+			ctx.beginPath();
+			ctx.moveTo(109, 267);
+			ctx.lineTo(85, 267);
+			ctx.lineTo(109, 218);
+			ctx.stroke();
+			
+			//hat
+			ctx.beginPath();
+			ctx.fillStyle = '#396693';	
+			ctx.strokeStyle = '#000000';
+			ctx.moveTo(2, 165);
+			ctx.bezierCurveTo(25, 195, 205, 195, 250, 165);
+			ctx.bezierCurveTo(250, 140, 25, 140, 2, 165);
+			ctx.closePath();
+			ctx.fill();
+			ctx.stroke();
+
+			
+			ctx.beginPath();
+			ctx.moveTo(70, 24);
+			ctx.bezierCurveTo(70, -5, 200, -5, 200, 24);
+			ctx.bezierCurveTo(200, 45, 70, 45, 70, 24);
+			ctx.fill();
+			
+			ctx.lineTo(70, 150);
+			ctx.bezierCurveTo(90, 173, 170, 173, 200, 150);
+			ctx.lineTo(200, 24);
+			ctx.fill();
+			ctx.stroke();
+			
+			//eye_1
+			ctx.beginPath();
+			ctx.fillStyle = '#337d8f';
+			ctx.moveTo(65, 202);
+			ctx.bezierCurveTo(56, 210, 56, 220, 65, 228);
+			ctx.bezierCurveTo(75, 228, 75, 210, 65, 202);
+			ctx.fill();
+
+			ctx.strokeStyle = '#337d8f';
+			ctx.beginPath();
+			ctx.moveTo(50, 215);
+			ctx.bezierCurveTo(55, 235, 90, 235, 95, 215);
+			ctx.bezierCurveTo(95, 195, 55, 195, 50, 215);
+			ctx.stroke();
+			
+			//eye_2
+			ctx.beginPath();
+			ctx.moveTo(130, 215);
+			ctx.bezierCurveTo(135, 235, 170, 235, 175, 215);
+			ctx.bezierCurveTo(175, 195, 135, 195, 130, 215);
+			ctx.stroke();
+			
+			ctx.beginPath();
+			ctx.moveTo(145, 202);
+			ctx.bezierCurveTo(136, 210, 136, 220, 145, 228);
+			ctx.bezierCurveTo(155, 228, 155, 210, 145, 202);
+			ctx.fill();
+			
+			//mouth
+			ctx.beginPath();
+			ctx.moveTo(75, 295);
+			ctx.bezierCurveTo(90, 280, 145, 290, 150, 310);
+			ctx.bezierCurveTo(140, 330, 80, 320, 75, 295);
+			
+			ctx.stroke();
+			ctx.closePath();			
+		</script>
+	</body>
+</html>

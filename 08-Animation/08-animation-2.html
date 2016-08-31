@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<title>pathExample</title>
+		<meta charset='utf-8' />
+	</head>
+	<body>
+		<canvas id='example'>Обновите браузер</canvas>
+		<script>
+			var example = document.getElementById("example"),
+			    ctx     = example.getContext('2d');
+			example.height = 480;
+			example.width  = 640;
+
+			ctx.fillStyle = '#90cad7';	
+			ctx.strokeStyle = "#337d8f";
+			ctx.lineWidth = 4;
+			ctx.beginPath();
+			
+			ctx.moveTo(510, 240);
+			ctx.arc(434, 240, 76, 0, 2* Math.PI, false);
+			ctx.fill();
+			
+			ctx.moveTo(166, 240);
+			ctx.arc(90, 240, 76, 2* Math.PI, 0, true);
+			ctx.fill();
+			
+			ctx.moveTo(460, 5);
+			ctx.lineTo(410, 50);
+			ctx.lineTo(420, 130); //
+			ctx.lineTo(200, 130);
+			ctx.lineTo(90, 240); //first wheel
+			ctx.lineTo(250, 230);			
+			ctx.lineTo(420, 130);
+			ctx.lineTo(434, 240);
+			ctx.moveTo(250, 230);
+			ctx.lineTo(170, 83);
+			ctx.moveTo(130, 83);
+			ctx.lineTo(210, 83);
+			ctx.moveTo(340, 83);
+			ctx.lineTo(410, 50);
+			ctx.moveTo(220, 200);
+			ctx.arc(250, 230, 20, 1.25* Math.PI, 2.25* Math.PI);
+			ctx.lineTo(280, 260);
+			ctx.arc(250, 230, 20, 2.25* Math.PI, 3.25* Math.PI);
+			ctx.stroke();
+			ctx.closePath();			
+		</script>
+	</body>
+</html>

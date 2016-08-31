@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+	<head>
+		<title>pathExample</title>
+		<meta charset='utf-8' />
+	</head>
+	<body>
+		<canvas id='example'>ww</canvas>
+		<script>
+			var example = document.getElementById("example"),
+			    ctx     = example.getContext('2d');
+			example.height = 591;
+			example.width  = 454;
+
+			ctx.fillStyle = '#cf5344';	
+			ctx.strokeStyle = "#000000";
+			ctx.lineWidth = 4;
+//------------------------------------------------------
+			ctx.beginPath();
+			ctx.moveTo(4, 2);
+			ctx.lineTo(450, 2);
+			ctx.lineTo(450, 587);
+			ctx.lineTo(4, 587);
+			ctx.lineTo(4, 0);
+			ctx.fill();
+			ctx.stroke();
+			ctx.closePath();
+//-------roof_left_side-------------------------
+			ctx.beginPath();
+			ctx.fillStyle = '#000000';	
+			ctx.moveTo(220, 0);
+			ctx.lineTo(2, 0);
+			ctx.lineTo(2, 246);
+			ctx.lineTo(218, 4);
+//-------roof_right_side----------------------------
+			ctx.lineTo(315, 98);
+			ctx.lineTo(315, 64);
+			ctx.bezierCurveTo(328, 54, 350, 54, 366, 64);
+			ctx.lineTo(366, 0);
+			ctx.fill();
+			ctx.closePath();
+			
+			ctx.beginPath();
+			ctx.moveTo(360, 0);
+			ctx.lineTo(366, 160);
+			ctx.lineTo(450, 246);
+			ctx.lineTo(450, 0);
+			ctx.fill();
+			ctx.closePath();
+//-----------------------------------------------------
+			ctx.beginPath();
+			ctx.moveTo(313, 95);
+			ctx.lineTo(313, 198);
+
+			ctx.moveTo(367, 198);
+			ctx.lineTo(367, 64);
+			ctx.stroke();
+			ctx.closePath();
+
+			ctx.moveTo(367, 64);
+			ctx.bezierCurveTo(350, 74, 328, 74, 315, 64);
+			ctx.stroke();
+			ctx.closePath();
+
+			ctx.beginPath();
+			ctx.moveTo(2, 245);
+			ctx.lineTo(452, 245);
+			ctx.stroke();
+//-------------------------------------------------------			
+			function wind(beginX, beginY) {
+				ctx.beginPath();
+				ctx.moveTo(beginX, beginY);
+				ctx.lineTo(beginX + 158, beginY); 291
+				ctx.lineTo(beginX + 158, beginY + 104);
+				ctx.lineTo(beginX, beginY + 104);
+				ctx.lineTo(beginX, beginY);
+				ctx.fill();
+				ctx.strokeStyle = '#cf5344';
+
+				ctx.moveTo(beginX + 80, beginY);
+				ctx.lineTo(beginX + 80, beginY + 104);
+				
+				ctx.moveTo(beginX, beginY + 52);
+				ctx.lineTo(beginX + 156, beginY + 52);
+				ctx.stroke();
+			}	
+			wind(36, 292);
+			wind(252, 292);
+			wind(252, 434);
+//--------door----------------------------------------
+			ctx.beginPath();
+			ctx.strokeStyle = '#000000';
+			ctx.moveTo(50, 587);
+			ctx.lineTo(50, 470);
+			ctx.bezierCurveTo(65, 430, 155, 430, 175, 470);
+			ctx.lineTo(175, 587);
+			ctx.moveTo(115, 587);
+			ctx.lineTo(115, 440); 
+			ctx.stroke();
+			ctx.closePath();
+
+			ctx.beginPath();	
+			ctx.arc(100, 550, 6, 0, 2*Math.PI);
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.arc(129, 550, 6, 0, 2*Math.PI);
+			ctx.stroke();
+		</script>
+	</body>
+</html>
