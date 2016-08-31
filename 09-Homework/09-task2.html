@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var pop = 0;
+		//предварительная очистка localStorage
+		//localStorage.clear();
+
+		//функция для перевода введенного числа в массив цифр
+		function defineMyArray() {	
+			var myNumber = prompt('Enter number, please');
+			var myArray = myNumber.split('');
+			var myNewArray = [];
+			
+			for (var i = 0; i < myArray.length; i++) {
+				myNewArray.push(parseInt(myArray[i]));
+			}
+			return myNewArray;
+		}
+		//функция возвращающая рандомное число в заданном интервале
+		function randomBetween(firstNum, secondNum) {
+			return Math.round((secondNum - firstNum) * Math.random() + firstNum);
+		}
+		//число из количества(kol) различных рандомных цифр 
+		function randomKolNumber(kol) {
+			var arr = [];
+			arr[0] = randomBetween(1, 9);
+			
+			while(arr.length < kol) {
+				var num = randomBetween(0, 9);
+				
+				for(var i = 0; i < arr.length; i++) {
+					if (num == arr[i]) {
+						break;
+					} else {
+						continue;
+					}
+				}
+				if (i == arr.length) {
+					arr.push(num);
+				}	
+			}	
+			return arr;
+		}		
+
+		var secretNumber = randomKolNumber(4); 
+		//функция подсчитывающая кол-во быков и коров
+		function comparateArrays() {
+			var firstArray = secretNumber;
+			var secondArray = defineMyArray();	
+			var sheep = 0;
+			var ram = 0;
+			
+			pop +=1;
+
+			for(var i = 0; i < firstArray.length; i++) {
+				for (var j = 0; j < secondArray.length; j++) {
+					if ((firstArray[i] == secondArray[j]) && (i !== j)) {
+						sheep += 1;
+					} else if (firstArray[i] == secondArray[j] && (i == j))  {
+						ram += 1;
+					}
+				}
+			} 
+
+			console.log(firstArray);
+			console.log(secondArray);
+			console.log(ram + ' ram ' + sheep + ' sheep');
+			if (ram === 4) {
+				alert('You win! Secret number ' + firstArray + ' кол-во попыток = ' + pop);
+				var playerName = prompt('your name');
+				localStorage.setItem(playerName, pop);
+				return true;
+			} else {
+				comparateArrays();
+			}
+		}	
+		comparateArrays();
+		//вывод всех значений в localStorage (результаты игроков)
+		for (var i = 0; i < localStorage.length; i++) {
+			var name = localStorage.key(i);
+			var value = localStorage.getItem(name);
+			console.log(name +': ' + value);
+		};
+	</script>
+</body>
+</html>
