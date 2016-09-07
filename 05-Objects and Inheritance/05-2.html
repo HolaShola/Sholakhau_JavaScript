@@ -1,0 +1,97 @@
+<script>
+	var domElement = {
+		init: function(type){
+			///^[A-Za-z]+$/ - one or more Latin letters 
+			///^[H|h][1-6]$/ - (H1-H6) or (h1-h6)
+			if (typeof type == 'string' && (/^[A-Za-z]+$/.test(type) || /^[H|h][1-6]$/.test(type))) {
+				this._type = type;
+				return this;
+			} else {
+				console.log('error');
+			}
+		},
+		get innerHTML(){
+			var tag = '<' + this._type;
+			if (this.attributes) {
+				this.attributes.sort(function(first,second) {
+					if (first.name > second.name) {return 1;}
+					if (first.name < second.name) {return -1;}
+					return 0;
+				});
+			}
+			for (var at in this.attributes) {
+				tag += ' ' + this.attributes[at].name + '="' + this.attributes[at].value  + '"';
+			}
+			tag  += '>';
+			if (this._content) {
+				tag += this._content;
+			}
+			for (var child in this.children) {
+				tag += this.children[child].innerHTML;
+			}
+			tag += '</' + this._type + '>';
+			return tag;
+		},
+		set content(cont) {
+			if (typeof this._child == 'undefined') {
+				this._content = cont;
+			}
+			return this;			
+		},
+		appendChild: function(child){
+			if (typeof child == 'object' || typeof child == 'string'){
+				if (typeof this.children == 'undefined'){
+					this.children = [];
+				}
+				this.children.push(child);
+			}
+			return this;
+		},
+		addAttribute: function(name, value){
+			if (!(typeof name == 'string' && /^[A-Za-z][A-Za-z0-9-]*$/.test(name))) {
+				throw Error('type is not valid');
+			} 
+			if (typeof this.attributes == 'undefined'){
+				this.attributes = [];
+			}
+			
+			this.attributes.push({name: name, value: value});
+			return this;
+		},
+		removeAttribute: function(attribute){
+			for (var j in this.attributes) {
+				if (this.attributes[j].name == attribute) {
+					delete this.attributes[j];
+				}
+			}
+			return this;
+		}
+	}
+
+	var meta = Object.create(domElement)
+    	.init('meta')
+    	.addAttribute('charset', 'utf-8');
+
+	var head = Object.create(domElement)
+    	.init('head')
+    	.appendChild(meta);
+
+    var div = Object.create(domElement)
+	    .init('div')
+	    .addAttribute('style', 'font-size: 42px');
+
+	div.content = 'Hello, world!';
+
+	var body = Object.create(domElement)
+	    .init('body')
+	    .appendChild(div)
+	    .addAttribute('id', 'myid')
+	    .addAttribute('bgcolor', '#012345');
+
+	var root = Object.create(domElement)
+		.init('html')
+		.appendChild(head)
+		.appendChild(body);
+
+	console.log(root.innerHTML);
+</script>
