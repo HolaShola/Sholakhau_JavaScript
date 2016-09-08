@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="area first">
+		<button onclick="set('data1.json', 1000, 'area1')">Click me</button>
+		<p><span id='area1'></span></p>
+	</div>
+	<div class="area second">
+		<button onclick="set('data2.json', 2000, 'area2')">Click me</button>
+		<p><span id='area2'></span></p>
+	</div>
+	<div class="area third">	
+		<button onclick="set('data3.json', 3000, 'area3')">Click me</button>
+		<p><span id='area3'></span></p>
+	</div>
+	<div class="area four">
+		<button onclick="set('data4.json', 4000, 'area4')">Click me</button>
+		<p><span id='area4'></span></p>
+	</div>
+
+	<script>
+    // path - data1, data2, data3, data4
+    function set(path, time, cont) {
+        window.setTimeout(function () {    
+            var xhr = new XMLHttpRequest();
+        	xhr.open('GET', path, true);
+        	xhr.send();
+        
+        	xhr.onreadystatechange = function() {
+            	if (xhr.readyState != 4) return; 
+            	if (xhr.status != 200) {
+            		alert('Error ' + xhr.status + ': ' + xhr.statusText);
+            		return;
+            	} else {
+            		var res = JSON.parse(xhr.responseText);
+     				for (var cur in res[0]) {
+     					document.getElementById(cont).innerHTML = res[0][cur];
+     				}
+            	}
+        	}  
+      	}, time);
+    }
+  </script>
+</body>
+</html>
