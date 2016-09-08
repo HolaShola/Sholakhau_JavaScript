@@ -4,6 +4,7 @@ var static = require('node-static');
 var file = new static.Server('.', {
   cache: 0
 });
+
 function accept(req, res) { 
       file.serve(req, res);
 }

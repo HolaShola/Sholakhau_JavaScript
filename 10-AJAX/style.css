@@ -4,11 +4,13 @@ html, body {
 	padding: 0;
 	margin: 0;
 }
+
 .area {
 	width: 25%;
 	height: 300px;
 	float: left;
 }
+
 .first {
 	background-color: #cfd0d1;
 }
